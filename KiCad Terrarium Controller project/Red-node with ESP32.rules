@@ -1,0 +1,188 @@
+
+(rules PCB Red-node with ESP32
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 343)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.9)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 250.2 (type default_GND))
+    (clear 250.2 (type default_"VCC-MOTOR"))
+    (clear 50.0 (type smd_smd))
+    (clear 250.2 (type smd_GND))
+    (clear 250.2 (type smd_"VCC-MOTOR"))
+    (clear 250.2 (type "kicad_default"_GND))
+    (clear 250.2 (type "kicad_default"_"VCC-MOTOR"))
+    (clear 250.2 (type GND_GND))
+    (clear 250.2 (type GND_SIGNAL))
+    (clear 250.2 (type GND_VCC))
+    (clear 250.2 (type GND_"VCC-MOTOR"))
+    (clear 250.2 (type SIGNAL_"VCC-MOTOR"))
+    (clear 250.2 (type VCC_"VCC-MOTOR"))
+    (clear 250.2 (type "VCC-MOTOR"_"VCC-MOTOR"))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_900:450_um"
+    (shape
+      (circle F.Cu 900.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 900.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_900:450_um" "Via[0-1]_900:450_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_900:450_um-kicad_default" "Via[0-1]_900:450_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-GND" "Via[0-1]_800:400_um" GND
+  )
+  (via 
+    "Via[0-1]_900:450_um-GND" "Via[0-1]_900:450_um" GND
+  )
+  (via 
+    "Via[0-1]_800:400_um-SIGNAL" "Via[0-1]_800:400_um" SIGNAL
+  )
+  (via 
+    "Via[0-1]_900:450_um-SIGNAL" "Via[0-1]_900:450_um" SIGNAL
+  )
+  (via 
+    "Via[0-1]_800:400_um-VCC" "Via[0-1]_800:400_um" VCC
+  )
+  (via 
+    "Via[0-1]_900:450_um-VCC" "Via[0-1]_900:450_um" VCC
+  )
+  (via 
+    "Via[0-1]_800:400_um-VCC-MOTOR" "Via[0-1]_800:400_um" "VCC-MOTOR"
+  )
+  (via 
+    "Via[0-1]_900:450_um-VCC-MOTOR" "Via[0-1]_900:450_um" "VCC-MOTOR"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    GND "Via[0-1]_900:450_um-GND"
+  )
+  (via_rule
+    SIGNAL "Via[0-1]_800:400_um-SIGNAL"
+  )
+  (via_rule
+    VCC "Via[0-1]_800:400_um-VCC"
+  )
+  (via_rule
+    "VCC-MOTOR" "Via[0-1]_900:450_um-VCC-MOTOR"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(C1-Pad2)" /GPIO25
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class GND
+    GND
+    (clearance_class GND)
+    (via_rule GND)
+    (rule
+      (width 400.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class SIGNAL
+    "Net-(D1-Pad2)" "Net-(D3-Pad2)" /GPIO39 "Net-(D4-Pad2)" /GPIO36 "Net-(J1-Pad2)" /GPIO35 "/SDA-GPIO21"
+    "/SCL-GPIO22" "Net-(J6-Pad3)" "Net-(JP2-Pad1)" "Net-(Q1-Pad1)" /GPIO34 /GPIO33 /GPIO32 "Net-(U1-Pad38)"
+    "Net-(U1-Pad37)" "Net-(U1-Pad36)" "Net-(U1-Pad35)" "Net-(U1-Pad34)" "Net-(U1-Pad33)" "Net-(U1-Pad32)" "Net-(U1-Pad31)" "Net-(U1-Pad30)"
+    "Net-(U1-Pad29)" "Net-(U1-Pad28)" "Net-(U1-Pad27)" "Net-(U1-Pad24)" "Net-(U1-Pad23)" "Net-(U1-Pad21)" "Net-(U1-Pad18)" "Net-(U1-Pad17)"
+    "Net-(U1-Pad16)" "Net-(U1-Pad15)" "Net-(U1-Pad13)" "Net-(U1-Pad12)" "Net-(U1-Pad11)" "Net-(U1-Pad10)" "Net-(U1-Pad2)"
+    (clearance_class SIGNAL)
+    (via_rule SIGNAL)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class VCC
+    VCC
+    (clearance_class VCC)
+    (via_rule VCC)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "VCC-MOTOR"
+    /VBAT /VCC2
+    (clearance_class "VCC-MOTOR")
+    (via_rule VCC-MOTOR)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
