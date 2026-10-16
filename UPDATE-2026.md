@@ -24,7 +24,8 @@ Not tested: the ESP32 sketches were not compiled against arduino-esp32 core 3.x 
 The install command shown in the videos has been replaced. On a Raspberry Pi or any Debian-based Linux, use:
 
 ```
-bash <(curl -sL https://github.com/node-red/linux-installers/releases/latest/download/install-update-nodered-deb)
+bash <(curl -sL \
+  https://github.com/node-red/linux-installers/releases/latest/download/install-update-nodered-deb)
 ```
 
 Add `--node24` or `--node26` at the end to choose the Node.js version. Add `--help` to see all options. Install `build-essential`, `git` and `curl` first (`sudo apt install build-essential git curl`) so that nodes with native code can compile.
